@@ -10,7 +10,7 @@
         The default value is '' (empty string).
 
     .PARAMETER BuildConfig
-        Path to a file with configuration. Supported extensions : psd1, yaml, yml, json, jsonc.
+        Path to a file with configuration. Supported extensions : psd1, yaml, yml, json, jsonc
 
     .PARAMETER OutputDirectory
         Specifies the folder to build the artefact into. The default value is 'output'.
@@ -166,6 +166,15 @@ process
 
     # Execute the Build process from the .build.ps1 path.
     Push-Location -Path $PSScriptRoot -StackName 'BeforeBuild'
+
+    if (Test-Path -Path 'Sampler')
+    {
+        # We are in the Sampler project, load functions instead of Sampler module.
+        Get-ChildItem -Path "Sampler/P*/*.ps1" |
+            ForEach-Object -Process {
+                . $_.FullName
+            }
+    }
 
     try
     {
@@ -539,4 +548,19 @@ begin
 
         return
     }
+
+    $setSamplerTaskVariablePath = Join-Path -Path $PSScriptRoot -ChildPath 'Sampler\scripts\Set-SamplerTaskVariable.ps1'
+
+    if (-not (Test-Path -Path $setSamplerTaskVariablePath))
+    {
+        $samplerModule = Get-Module -Name 'Sampler' -ListAvailable |
+            Select-Object -First 1
+
+        if ($samplerModule)
+        {
+            $setSamplerTaskVariablePath = Join-Path -Path $samplerModule.ModuleBase -ChildPath 'scripts\Set-SamplerTaskVariable.ps1'
+        }
+    }
+
+    Set-Alias -Name 'Set-SamplerTaskVariable' -Value $setSamplerTaskVariablePath
 }

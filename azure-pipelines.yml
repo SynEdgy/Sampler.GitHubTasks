@@ -3,8 +3,8 @@ trigger:
     include:
     - main
   paths:
-    include:
-    - source/*
+    exclude:
+    - CHANGELOG.md
   tags:
     include:
     - "v*"
@@ -17,6 +17,7 @@ variables:
   testResultFolderName: testResults
   testArtifactName: testResults
   defaultBranch: main
+  Agent.Source.Git.ShallowFetchDepth: 0
 
 stages:
   - stage: Build
@@ -173,10 +174,6 @@ stages:
             inputs:
               summaryFileLocation: '$(Build.SourcesDirectory)/$(buildFolderName)/$(testResultFolderName)/JaCoCo_coverage.xml'
               pathToSources: '$(Build.SourcesDirectory)/$(sourceFolderName)/'
-
-          - script: |
-              bash <(curl -s https://codecov.io/bash) -f "./$(buildFolderName)/$(testResultFolderName)/JaCoCo_coverage.xml"
-            displayName: 'Publish Code Coverage to Codecov.io'
 
   - stage: Deploy
     dependsOn: Quality_Test_and_Unit_Test
