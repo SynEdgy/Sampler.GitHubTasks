@@ -1,6 +1,6 @@
 ---
 description: 'Build and workflow authoring instructions'
-applyTo: '{build.ps1,build.yaml,RequiredModules.psd1,Resolve-Dependency.ps1,Resolve-Dependency.psd1,.build/tasks/*.build.ps1,azure-pipelines.yml,.pipelines/*.yml,.pipelines/*.yaml,.github/workflows/*.yml,.github/workflows/*.yaml}'
+applyTo: '{build.ps1,build.yaml,RequiredModules.psd1,Resolve-Dependency.ps1,Resolve-Dependency.psd1,.build/tasks/*.build.ps1,.github/workflows/*.yml,.github/workflows/*.yaml}'
 ---
 
 # Build and Workflow Development Guidelines

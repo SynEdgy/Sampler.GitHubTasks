@@ -187,8 +187,8 @@ GitHubConfig:
     - 'output/WikiContent.zip'
   GitHubFilesToAdd:
     - 'CHANGELOG.md'
-  GitHubConfigUserName: gaelcolas
-  GitHubConfigUserEmail: psgallery@synedgy.com
+  GitHubConfigUserName: github-actions[bot]
+  GitHubConfigUserEmail: 41898282+github-actions[bot]@users.noreply.github.com
   UpdateChangelogOnPrerelease: false
 
 ####################################################

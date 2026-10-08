@@ -16,7 +16,7 @@
     Author            = 'Gael Colas'
 
     # Company or vendor of this module
-    CompanyName       = 'SynEdgy Limited'
+    CompanyName       = 'SynEdgy'
 
     # Copyright statement for this module
     Copyright         = '(c) Gael Colas. All rights reserved.'
@@ -91,13 +91,13 @@
             Tags = @('Sampler', 'build', 'tasks', 'InvokeBuild')
 
             # A URL to the license for this module.
-            LicenseUri = 'https://github.com/gaelcolas/Sampler.GitHubTasks/blob/main/LICENSE'
+            LicenseUri = 'https://github.com/SynEdgy/Sampler.GitHubTasks/blob/main/LICENSE'
 
             # A URL to the main website for this project.
-            ProjectUri = 'https://github.com/gaelcolas/Sampler.GitHubTasks'
+            ProjectUri = 'https://github.com/SynEdgy/Sampler.GitHubTasks'
 
             # A URL to an icon representing this module.
-            IconUri = 'https://raw.githubusercontent.com/gaelcolas/Sampler.GitHubTasks/main/source/assets/sampler_GitHubTasks.png'
+            IconUri = 'https://raw.githubusercontent.com/SynEdgy/Sampler.GitHubTasks/main/source/assets/sampler_GitHubTasks.png'
 
             # ReleaseNotes of this module
             ReleaseNotes = ''
