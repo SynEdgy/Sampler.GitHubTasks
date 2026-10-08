@@ -35,6 +35,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Run CI for changelog-only pull requests so automatic release PRs satisfy required validation checks.
 - Updated repository ownership references from `gaelcolas` to `SynEdgy`.
 - Refreshed the Sampler bootstrap, dependency resolution, module output, and documentation workflow configuration.
 - Fixed Erroring when "$ProjectName.$ModuleVersion.nupkg" is not available (i.e. when using asset list in `Build.yaml`).
