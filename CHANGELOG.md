@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Added Copilot repository instructions and setup workflow.
+- Added explicit WikiSource authoring and validation guidance.
 - Created module with GitHub tasks from Sampler.
 - Support to add assets to GitHub released by defining the `ReleaseAssets` key in `build.yml` GitHubConfig.
 - Added logo.
@@ -17,10 +19,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+- Removed Codecov configuration and pipeline upload.
 - Removed GitHub Access Token from variable being displayed during build. Fixes Issue #17.
 
 ### Changed
 
+- Refreshed the Sampler bootstrap, dependency resolution, module output, and documentation workflow configuration.
 - Fixed Erroring when "$ProjectName.$ModuleVersion.nupkg" is not available (i.e. when using asset list in `Build.yaml`).
 - Fixed tasks to use the new Sampler version and its public functions.
 - Fixed RootModule not loaded because of Module Manifest.

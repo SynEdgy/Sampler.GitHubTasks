@@ -1,0 +1,68 @@
+name: 'Copilot Setup Steps'
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - '.github/workflows/copilot-setup-steps.yml'
+      - '.github/copilot-instructions.md'
+      - '.github/instructions/**'
+      - 'build.ps1'
+      - 'build.yaml'
+      - 'RequiredModules.psd1'
+      - 'Resolve-Dependency.ps1'
+      - 'Resolve-Dependency.psd1'
+  push:
+    paths:
+      - '.github/workflows/copilot-setup-steps.yml'
+      - '.github/copilot-instructions.md'
+      - '.github/instructions/**'
+      - 'build.ps1'
+      - 'build.yaml'
+      - 'RequiredModules.psd1'
+      - 'Resolve-Dependency.ps1'
+      - 'Resolve-Dependency.psd1'
+
+jobs:
+  copilot-setup-steps:
+    name: Setup PowerShell Development Environment
+    runs-on: windows-latest
+
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Install GitVersion
+        shell: pwsh
+        run: |
+          dotnet tool update --global GitVersion.Tool --version 5.* `
+            || dotnet tool install --global GitVersion.Tool --version 5.*
+
+          dotnet-gitversion /version
+
+      - name: Resolve project dependencies
+        shell: pwsh
+        run: ./build.ps1 -ResolveDependency -Tasks 'noop' -ErrorAction Stop
+
+      - name: Build module artifact
+        shell: pwsh
+        run: |
+          ./build.ps1 -Tasks 'build' -ErrorAction Stop
+
+          $builtModulePath = Join-Path -Path $PWD -ChildPath 'output\module\Sampler.GitHubTasks'
+          $builtModuleManifest = Get-ChildItem -Path $builtModulePath -Filter 'Sampler.GitHubTasks.psd1' -Recurse -File |
+              Sort-Object -Property FullName |
+              Select-Object -First 1
+
+          if (-not $builtModuleManifest)
+          {
+              throw "Expected built module manifest under '$builtModulePath' was not created."
+          }
+
+          Import-Module -Name $builtModuleManifest.FullName -Force -ErrorAction Stop
+          Get-Module -Name 'Sampler.GitHubTasks' -ErrorAction Stop
