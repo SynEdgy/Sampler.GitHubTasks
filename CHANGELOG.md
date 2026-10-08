@@ -58,6 +58,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Fixed changelog pull request creation failures hiding the full
+  `New-GitHubPullRequest` error details in build output.
 - Fixed task error when the PackageToRelease does not exist (i.e. it's not a module being built creating the .nupkg).
 - Fixed typo when adding debug output for GH task.
 - Fixed using the `Set-SamplerTaskVariable` in GH tasks.
