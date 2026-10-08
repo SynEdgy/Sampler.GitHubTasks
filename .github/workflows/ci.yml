@@ -12,8 +12,6 @@ on:
   pull_request:
     branches:
       - main
-    paths-ignore:
-      - CHANGELOG.md
   workflow_dispatch:
 
 permissions:
