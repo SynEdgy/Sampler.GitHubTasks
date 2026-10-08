@@ -353,7 +353,17 @@ task Create_ChangeLog_GitHub_PR -if ($GitHubToken -and (Get-Module -Name PowerSh
             MaintainerCanModify = $true
         }
 
-        $Response = New-GitHubPullRequest @NewPullRequestParams
+        try
+        {
+            $Response = New-GitHubPullRequest @NewPullRequestParams
+        }
+        catch
+        {
+            Write-Build Red 'New-GitHubPullRequest failed:'
+            Write-Build Red ($_ | Out-String)
+            return
+        }
+
         Write-Build Green "`n --> PR #$($Response.number) opened: $($Response.url)"
     }
     catch
