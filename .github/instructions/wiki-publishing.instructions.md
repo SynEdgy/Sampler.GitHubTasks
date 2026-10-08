@@ -1,6 +1,6 @@
 ---
 description: 'GitHub wiki content and publishing instructions'
-applyTo: 'source/WikiSource/**/*.md,build.yaml,RequiredModules.psd1,azure-pipelines.yml,.pipelines/*.yml,.pipelines/*.yaml'
+applyTo: 'source/WikiSource/**/*.md,build.yaml,RequiredModules.psd1,.github/workflows/*.yml,.github/workflows/*.yaml'
 ---
 
 # GitHub Wiki Publishing Guidelines

@@ -28,23 +28,23 @@ Describe 'GHOwnerRepoFromRemoteUrl' {
     BeforeDiscovery {
         $testCases = @(
             @{
-                Url      = 'git@github.com:gaelcolas/Sampler.GitHubTasks.git'
+                Url      = 'git@github.com:SynEdgy/Sampler.GitHubTasks.git'
                 Expected = @{
-                    Owner      = 'gaelcolas'
+                    Owner      = 'SynEdgy'
                     Repository = 'Sampler.GitHubTasks'
                 }
             }
             @{
-                Url      = 'https://github.com/gaelcolas/Sampler.GitHubTasks.git'
+                Url      = 'https://github.com/SynEdgy/Sampler.GitHubTasks.git'
                 Expected = @{
-                    Owner      = 'gaelcolas'
+                    Owner      = 'SynEdgy'
                     Repository = 'Sampler.GitHubTasks'
                 }
             }
             @{
-                Url      = 'https://github.com/gaelcolas/Sampler.GitHubTasks/'
+                Url      = 'https://github.com/SynEdgy/Sampler.GitHubTasks/'
                 Expected = @{
-                    Owner      = 'gaelcolas'
+                    Owner      = 'SynEdgy'
                     Repository = 'Sampler.GitHubTasks'
                 }
             }

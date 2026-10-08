@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Added a GitHub Actions CI workflow for cross-platform testing, quality checks, releases, wiki publishing, and changelog pull requests.
 - Added Copilot repository instructions and setup workflow.
 - Added explicit WikiSource authoring and validation guidance.
 - Created module with GitHub tasks from Sampler.
@@ -19,11 +20,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+- Removed the Azure DevOps pipeline and badges.
 - Removed Codecov configuration and pipeline upload.
 - Removed GitHub Access Token from variable being displayed during build. Fixes Issue #17.
 
 ### Changed
 
+- Updated repository ownership references from `gaelcolas` to `SynEdgy`.
 - Refreshed the Sampler bootstrap, dependency resolution, module output, and documentation workflow configuration.
 - Fixed Erroring when "$ProjectName.$ModuleVersion.nupkg" is not available (i.e. when using asset list in `Build.yaml`).
 - Fixed tasks to use the new Sampler version and its public functions.
@@ -36,13 +39,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Adding delay after creating release to make sure the tag is available at next git pull.
 - Updating when to skip the Create Changelog PR task (adding -ListAvailable).
 - Task `Publish_release_to_GitHub`
-  - Removed unnecessary code line ([issue #22](https://github.com/gaelcolas/Sampler.GitHubTasks/issues/22)).
+  - Removed unnecessary code line ([issue #22](https://github.com/SynEdgy/Sampler.GitHubTasks/issues/22)).
   - Now the command `New-GitHubRelease` only outputs verbose information
     if `$VerbosePreference` says so.
 - Fixed to use the actual built commit instead of latest commit on main branch, improving traceability and preventing CI pipeline conflicts.
 - Fix PSGallery preview badge.
 - Added DocGeneration
-- Upload docs to Wiki ([issue #31](https://github.com/gaelcolas/Sampler.GitHubTasks/issues/31)).
+- Upload docs to Wiki ([issue #31](https://github.com/SynEdgy/Sampler.GitHubTasks/issues/31)).
 - Update to Pester 5
 - Use matrix strategy for azure-pipelines unit tests.
 - Add Unit tests for public functions.

@@ -14,7 +14,7 @@
         Remote URL of the repository, you can get it in a cloned repository by doing: `git remote get-url origin`
 
     .EXAMPLE
-        Get-GHOwnerRepoFromRemoteUrl -RemoteUrl git@github.com:gaelcolas/Sampler.GitHubTasks.git
+        Get-GHOwnerRepoFromRemoteUrl -RemoteUrl git@github.com:SynEdgy/Sampler.GitHubTasks.git
 
 #>
 function Get-GHOwnerRepoFromRemoteUrl
